@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block body %}
+      <!--/超小屏幕可见-->
+  <div class="content-wrap"><!--中间内容-->
+    <div class="content">
+        <!-- 中间最新评论 -->
+          <div class="content-block comment-content">
+              <h2 class="title"><strong>最新文章</strong></h2>
+              <ul>
+                  {% if article %}
+                      {% for articles in article %}
+                          <div class="grid" style="background: rgba(255,255,255,.1);">
+                              <li> <span class="text">
+                                  <h3 >{{ articles.article_name }}</h3><br/>
+                 发布于：{{ articles.article_time.strftime("%a, %d %b %Y %H:%M:%S") }} <br/>
+                                  <a href="/article/{{articles.article_id }}" id="Content{{articles.article_id }}">{{ articles.article_content }}</a><br/></span>
+                              </li>
+                          </div>
+                          <hr/>
+                          <script>
+                                    var Name{{ articles.article_id }}=document.getElementById('Content{{ articles.article_id }}');
+                                    document.getElementById("Content{{ articles.article_id }}").innerHTML= Name{{ articles.article_id }}.innerText.substr(0,30)+' . . .'
+                          </script>
+                      {% endfor %}
+                  {% else %}
+                      <p style="color:blue;">the guy is so lazy.....</p>
+                  {% endif %}
+              </ul>
+          </div>
+      </div>
+    </div>
+  </div>
+
+
+
+{% endblock %}

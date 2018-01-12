@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block body %}
+        <!--/超小屏幕可见-->
+    <div class="content-wrap"><!--中间内容-->
+        <div class="content">
+
+            <!-- 中间最新评论 -->
+            <div class="content-block comment-content">
+                <h2 class="title"><strong>{{ articles.article_name }}</strong></h2>
+                <ul>
+                    {{ articles.article_content }}
+                </ul>
+            </div>
+
+
+        </div>
+    </div>
+    </div>
+
+
+
+
+{% endblock %}
